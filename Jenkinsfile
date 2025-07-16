@@ -1,7 +1,14 @@
-@Library('Shared') _
-
+@Library('Shared@master') _
 pipeline {
-    agent any
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        sharedFunction()
+      }
+    }
+  }
+}
     
     environment {
         // Update the main app image name to match the deployment file
@@ -122,3 +129,5 @@ pipeline {
         }
     }
 }
+
+
